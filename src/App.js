@@ -1,23 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './recipe.css';
+import Axios from 'axios';
+import {v4 as uuidv4} from 'uuid';
+import Recipe from './components/Recipe';
+import Alert from './components/Alert';
+
 
 function App() {
+
+  const[search, setSearch] = useState('');
+  const[recipes, setRecipes] = useState([]);
+  const [alert, setAlert] = useState('');
+
+  const url =`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}`
+
+  const getData = async() => {
+      if(search !== '') {
+        const result = await Axios.get(url);
+        if(!result.data.more) {
+          return setAlert('No results found');
+        }
+        setRecipes(result.data.hits)
+        console.log(result);
+        setAlert('');
+        setSearch('');
+      } else {
+        setAlert('Please fill out the form')
+      }
+  };
+
+  const onChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    getData();
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Recipe Finder</h1>
+      <form className = 'search-form' onSubmit={onSubmit}>
+        {alert !== '' && <Alert alert = {alert}/>}
+        <input type='text' placeholder ='Search Food' autoComplete='off' onChange={onChange} value={search}/>
+        <input type='submit' value='search'/>
+      </form>
+      <div className='recipes'>
+        {recipes !== [] && recipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe}/>)}
+      </div>
     </div>
   );
 }
