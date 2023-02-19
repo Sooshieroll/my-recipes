@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
-.recipe{
+.recipe {
     border-radius: 10px;
     box-shadow: 0px 5px 20px rgb(63,60,60);
     margin: 20px;
@@ -11,4 +11,68 @@
     align-items: center;
     min-width: 40%;
     font-family: 'Lobster', cursive;
+}
+
+.recipes {
+    width: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.recipe a {
+    margin: 20px 0 10px 0;
+    font-size: 1.2rem;
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.recipe button {
+    font-size: 1.2rem;
+    text-transform: uppercase; 
+    color: black;
+    border: none;
+    border-radius: 0.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+
+.finder {
+    text-align: center;
+    font-family:'Lobster', cursive;
+    display: block;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search {
+    width: 300px;
+    text-align: center;
+}
+
+.submit-button {
+    border-radius: 1rem;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: lightblue;
+    color: white;
+}
+
+.ingredient-list {
+    margin-top: 0.5rem;
+    border-radius: 0.5rem; 
+    padding: 0.4rem;
+    text-align: center;
 }

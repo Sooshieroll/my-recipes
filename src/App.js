@@ -40,12 +40,12 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="finder">
       <h1>Recipe Finder</h1>
       <form className = 'search-form' onSubmit={onSubmit}>
         {alert !== '' && <Alert alert = {alert}/>}
-        <input type='text' placeholder ='Search Food' autoComplete='off' onChange={onChange} value={search}/>
-        <input type='submit' value='search'/>
+        <input className='search' type='text' placeholder ='Search Food' autoComplete='off' onChange={onChange} value={search}/>
+        <input className='submit-button' type='submit' value='search'/>
       </form>
       <div className='recipes'>
         {recipes !== [] && recipes.map(recipe => <Recipe key={uuidv4()} recipe={recipe}/>)}
