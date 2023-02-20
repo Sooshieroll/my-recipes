@@ -6,6 +6,7 @@ import Recipe from './components/Recipe';
 import Alert from './components/Alert';
 
 
+
 function App() {
 
   const[search, setSearch] = useState('');
@@ -16,7 +17,7 @@ function App() {
 
   const getData = async() => {
       if(search !== '') {
-        const result = await Axios.get(url);
+        const result = await Axios.get(url, {mode:'cors'});
         if(!result.data.more) {
           return setAlert('No results found');
         }
