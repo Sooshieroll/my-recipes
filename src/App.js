@@ -14,7 +14,7 @@ function App() {
   const[recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState('');
 
-  const url =`${search}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}`
+  const url =`/search?q=${search}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}`
 
   const getData = async() => {
       if(search !== '') {
