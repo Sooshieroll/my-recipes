@@ -7,17 +7,18 @@ import Alert from './components/Alert';
 
 
 
+
 function App() {
 
   const[search, setSearch] = useState('');
   const[recipes, setRecipes] = useState([]);
   const [alert, setAlert] = useState('');
 
-  const url =`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}`
+  const url =`${search}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}`
 
   const getData = async() => {
       if(search !== '') {
-        const result = await Axios.get(url, {mode:'cors'});
+        const result = await Axios.get(url);
         if(!result.data.more) {
           return setAlert('No results found');
         }
