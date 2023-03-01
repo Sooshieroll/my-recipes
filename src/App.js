@@ -6,9 +6,6 @@ import Recipe from './components/Recipe';
 import Alert from './components/Alert';
 
 
-
-
-
 function App() {
 
   const[search, setSearch] = useState('');
