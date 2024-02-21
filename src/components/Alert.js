@@ -8,4 +8,4 @@ const Alert = ({alert}) => {
   )
 }
 
-export default Alert
+export default Alert;
