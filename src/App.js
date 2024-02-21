@@ -6,17 +6,19 @@ import Recipe from './components/Recipe';
 import Alert from './components/Alert';
 
 
+
 function App() {
 
-  const apiKey = process.env.REACT_APP_APP_KEY;
-  const apiId = process.env.REACT_APP_APP_ID;
+  // const apiKey = process.env.REACT_APP_APP_KEY;
+  // const apiId = process.env.REACT_APP_APP_ID;
 
   const[search, setSearch] = useState('');
   const[recipes, setRecipes] = useState([]);
   const[alert, setAlert] = useState('');
 
   // const url =`https://api.edamam.com/search?q=${search}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}`;
-  const url =`https://api.edamam.com/api/recipes/v2?q=${search}&app_key=${apiKey}&type=public&app_id=${apiId}`;
+  // const url =`https://api.edamam.com/api/recipes/v2?q=${search}&app_key=${apiKey}&type=public&app_id=${apiId}`;
+  const url =`https://api.edamam.com/api/recipes/v2?q=${search}&app_key=${process.env.REACT_APP_APP_KEY}&type=public&app_id=${process.env.REACT_APP_APP_ID}`;
 
   // async function getData() {
   //   let result = await Axios.get(url);
